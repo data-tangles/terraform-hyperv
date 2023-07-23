@@ -46,7 +46,7 @@ stages:
           - task: CmdLine@2
             inputs:
               script: |
-                terraform plan -var-file="/terraform/variables/terraform-hyperv//production/${{ parameters.hostSelection }}.tfvars" -out ${BUILD_BUILDNUMBER}.tfplan
+                terraform plan -var-file="/terraform/variables/terraform-hyperv/production/${{ parameters.hostSelection }}.tfvars" -out ${BUILD_BUILDNUMBER}.tfplan
               workingDirectory: '$(System.DefaultWorkingDirectory)/production/${{ parameters.hostSelection }}'
 
           - task: ArchiveFiles@2
