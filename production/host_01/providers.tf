@@ -5,6 +5,7 @@ terraform {
       version = "1.0.4"
     }
   }
+  backend "remote" {}
 }
 
 provider "hyperv" {
