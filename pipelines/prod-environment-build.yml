@@ -1,0 +1,100 @@
+parameters:
+  - name: terraformVersion
+    type: string
+    default: 'latest'
+  - name: agentPool
+    displayName: 'Agent Pool Selection'
+    type: string
+    default: Self-Hosted
+    values:
+    - Self-Hosted
+    - Oracle-Cloud
+  - name: hostSelection
+    displayName: 'Hyper-V Host Selection'
+    type: string
+    default: Self-Hosted
+    values:
+    - host_01
+    - host_02
+
+trigger:
+- none
+
+stages:
+  - stage: 'HyperVProdEnvironment'
+    dependsOn: []
+    displayName: 'Hyper-V Production Environment'
+
+    jobs:
+      - job: 'terraforminitplan'
+        displayName: 'Initialize and Plan Terraform for Hyper-V Production Environment'
+        pool: ${{ parameters.agentPool }}
+
+        steps:
+
+          - task: TerraformInstaller@0
+            displayName: 'Terraform Install'
+            inputs:
+              terraformVersion: ${{ parameters.terraformVersion }}
+
+          - task: CmdLine@2
+            inputs:
+              script: |
+                terraform init -backend-config="/terraform/variables/terraform-hyperv/backend.tf"
+              workingDirectory: '$(System.DefaultWorkingDirectory)/production/${{ parameters.hostSelection }}'
+
+          - task: CmdLine@2
+            inputs:
+              script: |
+                terraform plan -var-file="/terraform/variables/terraform-hyperv//production/${{ parameters.hostSelection }}.tfvars" -out ${BUILD_BUILDNUMBER}.tfplan
+              workingDirectory: '$(System.DefaultWorkingDirectory)/production/${{ parameters.hostSelection }}'
+
+          - task: ArchiveFiles@2
+            condition: succeeded()
+            displayName: 'Create Plan Artifact'
+            inputs:
+              rootFolderOrFile: '$(System.DefaultWorkingDirectory)/production/${{ parameters.hostSelection }}'
+              includeRootFolder: false
+              archiveType: 'tar'
+              tarCompression: 'gz'
+              archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildNumber).tgz'
+              replaceExistingArchive: true
+
+          - task: PublishPipelineArtifact@1
+            condition: succeeded()
+            displayName: 'Publish Plan Artifact'
+            inputs:
+              targetPath: '$(Build.ArtifactStagingDirectory)'
+              artifactName: 'hyperv-{{ parameters.hostSelection }}-plan'
+
+  - stage: 'HyperVProdEnvironmentApply'
+    dependsOn: 'HyperVProdEnvironment'
+    displayName: Hyper-V Production Environment Apply
+
+    jobs:
+      - deployment: 'HyperVProdEnvironment'
+        displayName: ' Apply Terraform for Hyper-V Production Environment'
+        pool: ${{ parameters.agentPool }}
+        environment: 'Hyper-V-Prod'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+
+              - task: TerraformInstaller@0
+                displayName: 'Terraform Install'
+                inputs:
+                  terraformVersion: ${{ parameters.terraformVersion }}
+
+              - task: ExtractFiles@1
+                displayName: 'Extract Plan Artifact'
+                inputs:
+                  archiveFilePatterns: '$(Pipeline.Workspace)/hyperv-{{ parameters.hostSelection }}-plan/$(Build.BuildNumber).tgz'
+                  destinationFolder: '$(System.DefaultWorkingDirectory)/production/${{ parameters.hostSelection }}'
+                  cleanDestinationFolder: true
+
+              - task: CmdLine@2
+                inputs:
+                  script: |
+                    terraform apply ${BUILD_BUILDNUMBER}.tfplan
+                  workingDirectory: '$(System.DefaultWorkingDirectory)/production/${{ parameters.hostSelection }}'
