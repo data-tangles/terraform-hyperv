@@ -2,7 +2,7 @@
 [![azure](https://img.shields.io/badge/windows-blue?style=for-the-badge&logo=windows)](https://azure.microsoft.com/)
 [![renovate](https://img.shields.io/badge/renovate-enabled-brightgreen?style=for-the-badge&logo=renovatebot)](https://github.com/renovatebot/renovate)
 
-[![HitCount](https://hits.dwyl.com/qman-being/terraform-azure.svg?style=for-the-badge&show=unique)](http://hits.dwyl.com/qman-being/terraform-hyperv)
+[![HitCount](https://hits.dwyl.com/qman-being/terraform-hyperv.svg?style=for-the-badge&show=unique)](http://hits.dwyl.com/qman-being/terraform-hyperv)
 
 # Terraform Hyper-V
 
