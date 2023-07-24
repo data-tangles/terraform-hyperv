@@ -214,16 +214,6 @@ resource "hyperv_machine_instance" "veeam" {
     "VSS"                     = true
   }
 
-  vm_firmware {
-    enable_secure_boot   = "On"
-    secure_boot_template = "MicrosoftWindows"
-    boot_order {
-      boot_type           = "HardDiskDrive"
-      controller_number   = "0"
-      controller_location = "0"
-    }
-  }
-
   network_adaptors {
     name        = var.veeam_nic_name
     switch_name = var.veeam_nic_switch
@@ -234,6 +224,16 @@ resource "hyperv_machine_instance" "veeam" {
     packet_direct_moderation_interval = "1000000"
     vmmq_enabled = "true"
     wait_for_ips = "false"
+  }
+
+  vm_firmware {
+    enable_secure_boot   = "On"
+    secure_boot_template = "MicrosoftWindows"
+    boot_order {
+      boot_type           = "HardDiskDrive"
+      controller_number   = "0"
+      controller_location = "0"
+    }
   }
 
   vm_processor {
