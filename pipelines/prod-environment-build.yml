@@ -108,7 +108,7 @@ stages:
               - task: ExtractFiles@1
                 displayName: 'Extract Plan Artifact'
                 inputs:
-                  archiveFilePatterns: '$(Pipeline.Workspace)/hyperv-{{ parameters.hostSelection }}-plan/$(Build.BuildNumber).tgz'
+                  archiveFilePatterns: '$(Pipeline.Workspace)/hyperv-tf-plan/$(Build.BuildNumber).tgz'
                   destinationFolder: '$(System.DefaultWorkingDirectory)/production/${{ parameters.hostSelection }}'
                   cleanDestinationFolder: true
 
