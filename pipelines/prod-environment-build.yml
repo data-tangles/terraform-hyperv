@@ -40,7 +40,7 @@ stages:
           - task: CmdLine@2
             inputs:
               script: |
-                terraform init -backend-config="/terraform/variables/terraform-hyperv/backend.tf"
+                terraform init -backend-config="/terraform/variables/terraform-hyperv/${{ parameters.hostSelection }}_backend.tf"
               workingDirectory: '$(System.DefaultWorkingDirectory)/production/${{ parameters.hostSelection }}'
 
           - task: CmdLine@2
