@@ -16,6 +16,15 @@ parameters:
     values:
     - host_01
     - host_02
+  - name: varSelection
+    displayName: 'Var File Selection'
+    type: string
+    default: host_01
+    values:
+    - host_01
+    - host_02
+    - host_01_oracle
+    - host_02_oracle  
   - name: terraformLogLevel
     displayName: 'Terraform Log Level'
     type: string
@@ -56,7 +65,7 @@ stages:
           - task: CmdLine@2
             inputs:
               script: |
-                terraform plan -var-file="/terraform/variables/terraform-hyperv/production/${{ parameters.hostSelection }}.tfvars" -out ${BUILD_BUILDNUMBER}.tfplan
+                terraform plan -var-file="/terraform/variables/terraform-hyperv/production/${{ parameters.varSelection }}.tfvars" -out ${BUILD_BUILDNUMBER}.tfplan
               workingDirectory: '$(System.DefaultWorkingDirectory)/production/${{ parameters.hostSelection }}'
 
           - task: ArchiveFiles@2
@@ -75,7 +84,7 @@ stages:
             displayName: 'Publish Plan Artifact'
             inputs:
               targetPath: '$(Build.ArtifactStagingDirectory)'
-              artifactName: 'hyperv-{{ parameters.hostSelection }}-plan'
+              artifactName: 'hyperv-tf-plan'
 
   - stage: 'HyperVProdEnvironmentApply'
     dependsOn: 'HyperVProdEnvironment'
