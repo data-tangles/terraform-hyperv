@@ -89,6 +89,8 @@ No modules.
 | <a name="input_veeam_automatic_start_action"></a> [veeam\_automatic\_start\_action](#input\_veeam\_automatic\_start\_action) | Specifies the action the virtual machine is to take upon start | `string` | n/a | yes |
 | <a name="input_veeam_automatic_start_delay"></a> [veeam\_automatic\_start\_delay](#input\_veeam\_automatic\_start\_delay) | Specifies the number of seconds by which the virtual machine's start should be delayed | `number` | n/a | yes |
 | <a name="input_veeam_automatic_stop_action"></a> [veeam\_automatic\_stop\_action](#input\_veeam\_automatic\_stop\_action) | Specifies the action the virtual machine is to take when the virtual machine host shuts down | `string` | n/a | yes |
+| <a name="input_veeam_data_disk_01_path"></a> [veeam\_data\_disk\_01\_path](#input\_veeam\_data\_disk\_01\_path) | Specifies the full path of the hard disk drive file to be added | `string` | n/a | yes |
+| <a name="input_veeam_data_disk_02_path"></a> [veeam\_data\_disk\_02\_path](#input\_veeam\_data\_disk\_02\_path) | Specifies the full path of the hard disk drive file to be added | `string` | n/a | yes |
 | <a name="input_veeam_generation"></a> [veeam\_generation](#input\_veeam\_generation) | Specifies the generation, as an integer, for the virtual machine | `number` | n/a | yes |
 | <a name="input_veeam_memory_startup_bytes"></a> [veeam\_memory\_startup\_bytes](#input\_veeam\_memory\_startup\_bytes) | Specifies the amount of memory that the virtual machine is to be allocated upon startup | `number` | n/a | yes |
 | <a name="input_veeam_name"></a> [veeam\_name](#input\_veeam\_name) | The name of the virtual machine | `string` | n/a | yes |

@@ -24,15 +24,15 @@ resource "hyperv_machine_instance" "dc01" {
   }
 
   network_adaptors {
-    name        = var.dc01_nic_name
-    switch_name = var.dc01_nic_switch
-    allow_teaming = "Off"
-    iov_interrupt_moderation = "Default"
-    iov_weight = "0"
-    packet_direct_moderation_count = "64"
+    name                              = var.dc01_nic_name
+    switch_name                       = var.dc01_nic_switch
+    allow_teaming                     = "Off"
+    iov_interrupt_moderation          = "Default"
+    iov_weight                        = "0"
+    packet_direct_moderation_count    = "64"
     packet_direct_moderation_interval = "1000000"
-    vmmq_enabled = "true"
-    wait_for_ips = "false"
+    vmmq_enabled                      = "true"
+    wait_for_ips                      = "false"
   }
 
   vm_firmware {
@@ -56,7 +56,7 @@ resource "hyperv_machine_instance" "dc01" {
     maximum_count_per_numa_socket                     = "1"
     relative_weight                                   = "100"
     reserve                                           = "0"
-    }
+  }
 
   hard_disk_drives {
     controller_type     = "Scsi"
@@ -92,15 +92,15 @@ resource "hyperv_machine_instance" "k3s_01" {
   }
 
   network_adaptors {
-    name        = var.k3s_01_nic_name
-    switch_name = var.k3s_01_nic_switch
-    allow_teaming = "Off"
-    iov_interrupt_moderation = "Default"
-    iov_weight = "0"
-    packet_direct_moderation_count = "64"
+    name                              = var.k3s_01_nic_name
+    switch_name                       = var.k3s_01_nic_switch
+    allow_teaming                     = "Off"
+    iov_interrupt_moderation          = "Default"
+    iov_weight                        = "0"
+    packet_direct_moderation_count    = "64"
     packet_direct_moderation_interval = "1000000"
-    vmmq_enabled = "true"
-    wait_for_ips = "false"
+    vmmq_enabled                      = "true"
+    wait_for_ips                      = "false"
   }
 
   vm_processor {
@@ -114,7 +114,7 @@ resource "hyperv_machine_instance" "k3s_01" {
     maximum_count_per_numa_socket                     = "1"
     relative_weight                                   = "100"
     reserve                                           = "0"
-    }
+  }
 
   hard_disk_drives {
     controller_type     = "Ide"
@@ -150,15 +150,15 @@ resource "hyperv_machine_instance" "media" {
   }
 
   network_adaptors {
-    name        = var.media_nic_name
-    switch_name = var.media_nic_switch
-    allow_teaming = "Off"
-    iov_interrupt_moderation = "Default"
-    iov_weight = "0"
-    packet_direct_moderation_count = "64"
+    name                              = var.media_nic_name
+    switch_name                       = var.media_nic_switch
+    allow_teaming                     = "Off"
+    iov_interrupt_moderation          = "Default"
+    iov_weight                        = "0"
+    packet_direct_moderation_count    = "64"
     packet_direct_moderation_interval = "1000000"
-    vmmq_enabled = "true"
-    wait_for_ips = "false"
+    vmmq_enabled                      = "true"
+    wait_for_ips                      = "false"
   }
 
   vm_processor {
@@ -172,7 +172,7 @@ resource "hyperv_machine_instance" "media" {
     maximum_count_per_numa_socket                     = "1"
     relative_weight                                   = "100"
     reserve                                           = "0"
-    }
+  }
 
   hard_disk_drives {
     controller_type     = "Ide"
@@ -215,25 +215,44 @@ resource "hyperv_machine_instance" "veeam" {
   }
 
   network_adaptors {
-    name        = var.veeam_nic_name
-    switch_name = var.veeam_nic_switch
-    allow_teaming = "Off"
-    iov_interrupt_moderation = "Default"
-    iov_weight = "0"
-    packet_direct_moderation_count = "64"
+    name                              = var.veeam_nic_name
+    switch_name                       = var.veeam_nic_switch
+    allow_teaming                     = "Off"
+    iov_interrupt_moderation          = "Default"
+    iov_weight                        = "0"
+    packet_direct_moderation_count    = "64"
     packet_direct_moderation_interval = "1000000"
-    vmmq_enabled = "true"
-    wait_for_ips = "false"
+    vmmq_enabled                      = "true"
+    wait_for_ips                      = "false"
   }
 
   vm_firmware {
     enable_secure_boot   = "On"
     secure_boot_template = "MicrosoftWindows"
     boot_order {
+      boot_type           = "NetworkAdapter"
+      controller_number   = "-1"
+      controller_location = "-1"
+    }
+    boot_order {
       boot_type           = "HardDiskDrive"
       controller_number   = "0"
       controller_location = "0"
+      path                = var.veeam_os_disk_path
     }
+    boot_order {
+      boot_type           = "HardDiskDrive"
+      controller_number   = "0"
+      controller_location = "2"
+      path                = var.veeam_data_disk_02_path
+    }
+    boot_order {
+      boot_type           = "HardDiskDrive"
+      controller_number   = "0"
+      controller_location = "1"
+      path                = var.veeam_data_disk_01_path
+    }
+
   }
 
   vm_processor {
@@ -247,7 +266,7 @@ resource "hyperv_machine_instance" "veeam" {
     maximum_count_per_numa_socket                     = "1"
     relative_weight                                   = "100"
     reserve                                           = "0"
-    }
+  }
 
   hard_disk_drives {
     controller_type     = "Scsi"
@@ -260,6 +279,7 @@ resource "hyperv_machine_instance" "veeam" {
     controller_type     = "Scsi"
     controller_number   = "0"
     controller_location = "1"
+    disk_number         = "4294967295"
     path                = var.veeam_data_disk_01_path
   }
 
@@ -267,6 +287,7 @@ resource "hyperv_machine_instance" "veeam" {
     controller_type     = "Scsi"
     controller_number   = "0"
     controller_location = "2"
+    disk_number         = "4294967295"
     path                = var.veeam_data_disk_02_path
   }
 }
