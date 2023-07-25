@@ -279,7 +279,7 @@ resource "hyperv_machine_instance" "veeam" {
     controller_type     = "Scsi"
     controller_number   = "0"
     controller_location = "1"
-    disk_number         = "4294967295"
+    disk_number         = "3"
     path                = var.veeam_data_disk_01_path
   }
 
@@ -287,7 +287,7 @@ resource "hyperv_machine_instance" "veeam" {
     controller_type     = "Scsi"
     controller_number   = "0"
     controller_location = "2"
-    disk_number         = "4294967295"
+    disk_number         = "4"
     path                = var.veeam_data_disk_02_path
   }
 }

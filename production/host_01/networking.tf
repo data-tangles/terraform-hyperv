@@ -9,5 +9,4 @@ resource "hyperv_network_switch" "host_01_production_vswitch" {
   default_queue_vmmq_enabled              = "true"
   default_queue_vrss_enabled              = "true"
   minimum_bandwidth_mode                  = "Absolute"
-  net_adapter_names                       = ["Ethernet"]
 }
