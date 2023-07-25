@@ -9,7 +9,7 @@ resource "hyperv_machine_instance" "dc02" {
   processor_count        = var.dc02_processor_count
   smart_paging_file_path = var.dc02_smart_paging_file_path
   snapshot_file_location = var.dc02_snapshost_file_location
-  notes                  = "Environment: ${local.environment}\nCreated by: ${local.createdby}\nCreated on: ${local.createdon}\nModified on: ${local.modifiedon}\nPurpose: Domain Controller"
+  notes                  = "Environment: ${local.environment}\nCreated by: ${local.createdby}\nModified on: ${local.modifiedon}\nPurpose: Domain Controller"
   static_memory          = "true"
   memory_startup_bytes   = var.dc02_memory_startup_bytes
   state                  = "Running"
@@ -57,7 +57,7 @@ resource "hyperv_machine_instance" "k3s_02" {
   processor_count        = var.k3s_02_processor_count
   smart_paging_file_path = var.k3s_02_smart_paging_file_path
   snapshot_file_location = var.k3s_02_snapshost_file_location
-  notes                  = "Environment: ${local.environment}\nCreated by: ${local.createdby}\nCreated on: ${local.createdon}\nModified on: ${local.modifiedon}\nPurpose: k3s Node"
+  notes                  = "Environment: ${local.environment}\nCreated by: ${local.createdby}\nModified on: ${local.modifiedon}\nPurpose: k3s Node"
   static_memory          = "true"
   memory_startup_bytes   = var.k3s_02_memory_startup_bytes
   state                  = "Running"
@@ -95,7 +95,7 @@ resource "hyperv_machine_instance" "ca" {
   processor_count        = var.ca_processor_count
   smart_paging_file_path = var.ca_smart_paging_file_path
   snapshot_file_location = var.ca_snapshost_file_location
-  notes                  = "Environment: ${local.environment}\nCreated by: ${local.createdby}\nCreated on: ${local.createdon}\nModified on: ${local.modifiedon}\nPurpose: Certificate Authority"
+  notes                  = "Environment: ${local.environment}\nCreated by: ${local.createdby}\nModified on: ${local.modifiedon}\nPurpose: Certificate Authority"
   static_memory          = "true"
   memory_startup_bytes   = var.ca_memory_startup_bytes
   state                  = "Running"
@@ -143,7 +143,7 @@ resource "hyperv_machine_instance" "ansible" {
   processor_count        = var.ansible_processor_count
   smart_paging_file_path = var.ansible_smart_paging_file_path
   snapshot_file_location = var.ansible_snapshost_file_location
-  notes                  = "Environment: ${local.environment}\nCreated by: ${local.createdby}\nCreated on: ${local.createdon}\nModified on: ${local.modifiedon}\nPurpose: Ansible Host"
+  notes                  = "Environment: ${local.environment}\nCreated by: ${local.createdby}\nModified on: ${local.modifiedon}\nPurpose: Ansible Host"
   static_memory          = "true"
   memory_startup_bytes   = var.ansible_memory_startup_bytes
   state                  = "Running"
