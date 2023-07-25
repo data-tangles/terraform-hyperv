@@ -12,10 +12,20 @@ parameters:
   - name: hostSelection
     displayName: 'Hyper-V Host Selection'
     type: string
-    default: Self-Hosted
+    default: host_01
     values:
     - host_01
     - host_02
+  - name: terraformLogLevel
+    displayName: 'Terraform Log Level'
+    type: string
+    default: WARN
+    values:
+     - INFO
+     - WARN
+     - ERROR
+     - DEBUG
+     - TRACE
 
 trigger:
 - none
@@ -96,5 +106,6 @@ stages:
               - task: CmdLine@2
                 inputs:
                   script: |
+                    export TF_LOG='{{ parameters.terraformLogLevel }}'
                     terraform apply ${BUILD_BUILDNUMBER}.tfplan
                   workingDirectory: '$(System.DefaultWorkingDirectory)/production/${{ parameters.hostSelection }}'
