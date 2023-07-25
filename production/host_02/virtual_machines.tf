@@ -23,6 +23,18 @@ resource "hyperv_machine_instance" "dc02" {
     "VSS"                     = true
   }
 
+  network_adaptors {
+    name                              = var.dc02_nic_name
+    switch_name                       = var.dc02_nic_switch
+    allow_teaming                     = "Off"
+    iov_interrupt_moderation          = "Default"
+    iov_weight                        = "0"
+    packet_direct_moderation_count    = "64"
+    packet_direct_moderation_interval = "1000000"
+    vmmq_enabled                      = "true"
+    wait_for_ips                      = "false"
+  }
+
   vm_firmware {
     enable_secure_boot   = "On"
     secure_boot_template = "MicrosoftWindows"
@@ -33,9 +45,17 @@ resource "hyperv_machine_instance" "dc02" {
     }
   }
 
-  network_adaptors {
-    name        = var.dc02_nic_name
-    switch_name = var.dc02_nic_switch
+  vm_processor {
+    compatibility_for_migration_enabled               = "false"
+    compatibility_for_older_operating_systems_enabled = "false"
+    enable_host_resource_protection                   = "false"
+    expose_virtualization_extensions                  = "false"
+    hw_thread_count_per_core                          = "0"
+    maximum                                           = "100"
+    maximum_count_per_numa_node                       = "4"
+    maximum_count_per_numa_socket                     = "1"
+    relative_weight                                   = "100"
+    reserve                                           = "0"
   }
 
   hard_disk_drives {
@@ -72,8 +92,28 @@ resource "hyperv_machine_instance" "k3s_02" {
   }
 
   network_adaptors {
-    name        = var.k3s_02_nic_name
-    switch_name = var.k3s_02_nic_switch
+    name                              = var.k3s_02_nic_name
+    switch_name                       = var.k3s_02_nic_switch
+    allow_teaming                     = "Off"
+    iov_interrupt_moderation          = "Default"
+    iov_weight                        = "0"
+    packet_direct_moderation_count    = "64"
+    packet_direct_moderation_interval = "1000000"
+    vmmq_enabled                      = "true"
+    wait_for_ips                      = "false"
+  }
+
+  vm_processor {
+    compatibility_for_migration_enabled               = "false"
+    compatibility_for_older_operating_systems_enabled = "false"
+    enable_host_resource_protection                   = "false"
+    expose_virtualization_extensions                  = "false"
+    hw_thread_count_per_core                          = "0"
+    maximum                                           = "100"
+    maximum_count_per_numa_node                       = "4"
+    maximum_count_per_numa_socket                     = "1"
+    relative_weight                                   = "100"
+    reserve                                           = "0"
   }
 
   hard_disk_drives {
@@ -109,6 +149,18 @@ resource "hyperv_machine_instance" "ca" {
     "VSS"                     = true
   }
 
+  network_adaptors {
+    name                              = var.ca_nic_name
+    switch_name                       = var.ca_nic_switch
+    allow_teaming                     = "Off"
+    iov_interrupt_moderation          = "Default"
+    iov_weight                        = "0"
+    packet_direct_moderation_count    = "64"
+    packet_direct_moderation_interval = "1000000"
+    vmmq_enabled                      = "true"
+    wait_for_ips                      = "false"
+  }
+
   vm_firmware {
     enable_secure_boot   = "On"
     secure_boot_template = "MicrosoftWindows"
@@ -119,9 +171,17 @@ resource "hyperv_machine_instance" "ca" {
     }
   }
 
-  network_adaptors {
-    name        = var.ca_nic_name
-    switch_name = var.ca_nic_switch
+  vm_processor {
+    compatibility_for_migration_enabled               = "false"
+    compatibility_for_older_operating_systems_enabled = "false"
+    enable_host_resource_protection                   = "false"
+    expose_virtualization_extensions                  = "false"
+    hw_thread_count_per_core                          = "0"
+    maximum                                           = "100"
+    maximum_count_per_numa_node                       = "4"
+    maximum_count_per_numa_socket                     = "1"
+    relative_weight                                   = "100"
+    reserve                                           = "0"
   }
 
   hard_disk_drives {
@@ -158,8 +218,28 @@ resource "hyperv_machine_instance" "ansible" {
   }
 
   network_adaptors {
-    name        = var.ansible_nic_name
-    switch_name = var.ansible_nic_switch
+    name                              = var.ansible_nic_name
+    switch_name                       = var.ansible_nic_switch
+    allow_teaming                     = "Off"
+    iov_interrupt_moderation          = "Default"
+    iov_weight                        = "0"
+    packet_direct_moderation_count    = "64"
+    packet_direct_moderation_interval = "1000000"
+    vmmq_enabled                      = "true"
+    wait_for_ips                      = "false"
+  }
+
+  vm_processor {
+    compatibility_for_migration_enabled               = "false"
+    compatibility_for_older_operating_systems_enabled = "false"
+    enable_host_resource_protection                   = "false"
+    expose_virtualization_extensions                  = "false"
+    hw_thread_count_per_core                          = "0"
+    maximum                                           = "100"
+    maximum_count_per_numa_node                       = "4"
+    maximum_count_per_numa_socket                     = "1"
+    relative_weight                                   = "100"
+    reserve                                           = "0"
   }
 
   hard_disk_drives {
