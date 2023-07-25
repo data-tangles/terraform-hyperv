@@ -12,10 +12,20 @@ parameters:
   - name: hostSelection
     displayName: 'Hyper-V Host Selection'
     type: string
-    default: Self-Hosted
+    default: host_01
     values:
     - host_01
     - host_02
+  - name: terraformLogLevel
+    displayName: 'Terraform Log Level'
+    type: string
+    default: WARN
+    values:
+     - INFO
+     - WARN
+     - ERROR
+     - DEBUG
+     - TRACE
 
 trigger:
 - none
@@ -92,6 +102,12 @@ stages:
                   archiveFilePatterns: '$(Pipeline.Workspace)/hyperv-{{ parameters.hostSelection }}-plan/$(Build.BuildNumber).tgz'
                   destinationFolder: '$(System.DefaultWorkingDirectory)/production/${{ parameters.hostSelection }}'
                   cleanDestinationFolder: true
+
+              - task: CmdLine@2
+                inputs:
+                  script: |
+                    export TF_LOG={{ parameters.terraformLogLevel }}
+                  workingDirectory: '$(System.DefaultWorkingDirectory)/production/${{ parameters.hostSelection }}'
 
               - task: CmdLine@2
                 inputs:
