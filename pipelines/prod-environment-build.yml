@@ -106,7 +106,7 @@ stages:
               - task: CmdLine@2
                 inputs:
                   script: |
-                    export TF_LOG={{ parameters.terraformLogLevel }}
+                    export TF_LOG="{{ parameters.terraformLogLevel }}"
                   workingDirectory: '$(System.DefaultWorkingDirectory)/production/${{ parameters.hostSelection }}'
 
               - task: CmdLine@2
