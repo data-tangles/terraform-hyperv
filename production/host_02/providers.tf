@@ -1,8 +1,8 @@
 terraform {
   required_providers {
     hyperv = {
-      source  = "taliesins/hyperv"
-      version = "1.0.4"
+      source  = "qman-being/hyperv"
+      version = "1.0.1"
     }
   }
   backend "remote" {}
