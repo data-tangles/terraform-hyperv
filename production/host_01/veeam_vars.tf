@@ -1,4 +1,18 @@
-/*
+variable "veeam_server_vhd_path" {
+  type        = string
+  description = "Path to the new virtual hard disk file(s) that is being created or being copied to"
+}
+
+variable "veeam_server_vhd_source" {
+  type        = string
+  description = "Path to the source virtual hard disk file(s) that is being used as a source"
+}
+
+variable "veeam_server_vhd_size" {
+  type        = number
+  description = "The maximum size, in bytes, of the virtual hard disk to be created"
+}
+
 variable "veeam_name" {
   type        = string
   description = "The name of the virtual machine"
@@ -53,19 +67,3 @@ variable "veeam_nic_switch" {
   type        = string
   description = "Specifies the name of the virtual switch to connect to the new network adapterlue"
 }
-
-variable "veeam_os_disk_path" {
-  type        = string
-  description = "Specifies the full path of the hard disk drive file to be added"
-}
-
-variable "veeam_data_disk_01_path" {
-  type        = string
-  description = "Specifies the full path of the hard disk drive file to be added"
-}
-
-variable "veeam_data_disk_02_path" {
-  type        = string
-  description = "Specifies the full path of the hard disk drive file to be added"
-}
-*/

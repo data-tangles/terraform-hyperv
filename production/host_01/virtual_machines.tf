@@ -297,7 +297,14 @@ resource "hyperv_machine_instance" "vbr" {
 }
 
 # Veeam Server
-/*
+
+resource "hyperv_vhd" "veeam_server_vhd" {
+  path     = var.veeam_server_vhd_path
+  source   = var.veeam_server_vhd_source
+  vhd_type = "Dynamic"
+  size     = var.veeam_server_vhd_size
+}
+
 resource "hyperv_machine_instance" "veeam" {
   name                   = var.veeam_name
   generation             = var.veeam_generation
@@ -337,29 +344,10 @@ resource "hyperv_machine_instance" "veeam" {
     enable_secure_boot   = "On"
     secure_boot_template = "MicrosoftWindows"
     boot_order {
-      boot_type           = "NetworkAdapter"
-      controller_number   = "-1"
-      controller_location = "-1"
-    }
-    boot_order {
       boot_type           = "HardDiskDrive"
       controller_number   = "0"
       controller_location = "0"
-      path                = var.veeam_os_disk_path
     }
-    boot_order {
-      boot_type           = "HardDiskDrive"
-      controller_number   = "0"
-      controller_location = "2"
-      path                = var.veeam_data_disk_02_path
-    }
-    boot_order {
-      boot_type           = "HardDiskDrive"
-      controller_number   = "0"
-      controller_location = "1"
-      path                = var.veeam_data_disk_01_path
-    }
-
   }
 
   vm_processor {
@@ -379,27 +367,6 @@ resource "hyperv_machine_instance" "veeam" {
     controller_type     = "Scsi"
     controller_number   = "0"
     controller_location = "0"
-    path                = var.veeam_os_disk_path
-  }
-
-  hard_disk_drives {
-    controller_type     = "Scsi"
-    controller_number   = "0"
-    controller_location = "1"
-    disk_number         = "3"
-    qos_policy_id       = ""
-    resource_pool_name  = ""
-    path                = var.veeam_data_disk_01_path
-  }
-
-  hard_disk_drives {
-    controller_type     = "Scsi"
-    controller_number   = "0"
-    controller_location = "2"
-    disk_number         = "4"
-    qos_policy_id       = ""
-    resource_pool_name  = ""
-    path                = var.veeam_data_disk_02_path
+    path                = hyperv_vhd.veeam_server_vhd.path
   }
 }
-*/
