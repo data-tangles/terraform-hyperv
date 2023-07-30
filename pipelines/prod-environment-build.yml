@@ -28,7 +28,7 @@ parameters:
   - name: terraformLogLevel
     displayName: 'Terraform Log Level'
     type: string
-    default: WARN
+    default: INFO
     values:
      - INFO
      - WARN
