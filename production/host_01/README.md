@@ -6,7 +6,7 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5 |
-| <a name="requirement_hyperv"></a> [hyperv](#requirement\_hyperv) | 1.0.1 |
+| <a name="requirement_hyperv"></a> [hyperv](#requirement\_hyperv) | 1.0.2 |
 
 ## Providers
 
@@ -22,12 +22,12 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [hyperv_machine_instance.dc01](https://registry.terraform.io/providers/qman-being/hyperv/1.0.1/docs/resources/machine_instance) | resource |
-| [hyperv_machine_instance.k3s_01](https://registry.terraform.io/providers/qman-being/hyperv/1.0.1/docs/resources/machine_instance) | resource |
-| [hyperv_machine_instance.media](https://registry.terraform.io/providers/qman-being/hyperv/1.0.1/docs/resources/machine_instance) | resource |
-| [hyperv_machine_instance.vbr](https://registry.terraform.io/providers/qman-being/hyperv/1.0.1/docs/resources/machine_instance) | resource |
-| [hyperv_machine_instance.veeam](https://registry.terraform.io/providers/qman-being/hyperv/1.0.1/docs/resources/machine_instance) | resource |
-| [hyperv_network_switch.host_01_production_vswitch](https://registry.terraform.io/providers/qman-being/hyperv/1.0.1/docs/resources/network_switch) | resource |
+| [hyperv_machine_instance.dc01](https://registry.terraform.io/providers/qman-being/hyperv/1.0.2/docs/resources/machine_instance) | resource |
+| [hyperv_machine_instance.k3s_01](https://registry.terraform.io/providers/qman-being/hyperv/1.0.2/docs/resources/machine_instance) | resource |
+| [hyperv_machine_instance.media](https://registry.terraform.io/providers/qman-being/hyperv/1.0.2/docs/resources/machine_instance) | resource |
+| [hyperv_machine_instance.vbr](https://registry.terraform.io/providers/qman-being/hyperv/1.0.2/docs/resources/machine_instance) | resource |
+| [hyperv_machine_instance.veeam](https://registry.terraform.io/providers/qman-being/hyperv/1.0.2/docs/resources/machine_instance) | resource |
+| [hyperv_network_switch.host_01_production_vswitch](https://registry.terraform.io/providers/qman-being/hyperv/1.0.2/docs/resources/network_switch) | resource |
 
 ## Inputs
 
