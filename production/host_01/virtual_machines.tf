@@ -298,7 +298,13 @@ resource "hyperv_machine_instance" "vbr" {
 
 # Veeam Server
 
+resource "hyperv_vhd" "veeam_server_vhd" {
+  path   = var.veeam_server_vhd_path
+  source = var.veeam_server_vhd_source
+}
+
 resource "hyperv_machine_instance" "veeam" {
+  depends_on             = [hyperv_vhd.veeam_server_vhd]
   name                   = var.veeam_name
   generation             = var.veeam_generation
   automatic_start_action = var.veeam_automatic_start_action

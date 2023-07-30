@@ -2,12 +2,12 @@ variable "veeam_server_vhd_path" {
   type        = string
   description = "Path to the new virtual hard disk file(s) that is being created or being copied to"
 }
-/*
+
 variable "veeam_server_vhd_source" {
   type        = string
   description = "Path to the source virtual hard disk file(s) that is being used as a source"
 }
-*/
+
 /*
 variable "veeam_server_vhd_size" {
   type        = number
