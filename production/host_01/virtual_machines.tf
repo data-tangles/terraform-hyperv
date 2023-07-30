@@ -302,6 +302,12 @@ resource "hyperv_vhd" "veeam_server_vhd" {
   path   = var.veeam_server_vhd_path
   source = var.veeam_server_vhd_source
   size   = var.veeam_server_vhd_size
+  timeouts {
+    create = "10"
+    delete = "10"
+    read   = "10"
+    update = "10"
+  }
 }
 
 resource "hyperv_machine_instance" "veeam" {
