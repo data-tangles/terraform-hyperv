@@ -298,13 +298,7 @@ resource "hyperv_machine_instance" "vbr" {
 
 # Veeam Server
 
-resource "hyperv_vhd" "veeam_server_vhd" {
-  path   = var.veeam_server_vhd_path
-  source = var.veeam_server_vhd_source
-}
-
 resource "hyperv_machine_instance" "veeam" {
-  depends_on             = [hyperv_vhd.veeam_server_vhd]
   name                   = var.veeam_name
   generation             = var.veeam_generation
   automatic_start_action = var.veeam_automatic_start_action
@@ -366,6 +360,6 @@ resource "hyperv_machine_instance" "veeam" {
     controller_type     = "Scsi"
     controller_number   = "0"
     controller_location = "0"
-    path                = hyperv_vhd.veeam_server_vhd.path
+    path                = var.veeam_server_vhd_path
   }
 }
