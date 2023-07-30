@@ -12,7 +12,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_hyperv"></a> [hyperv](#provider\_hyperv) | 1.0.1 |
+| <a name="provider_hyperv"></a> [hyperv](#provider\_hyperv) | 1.0.2 |
 
 ## Modules
 
