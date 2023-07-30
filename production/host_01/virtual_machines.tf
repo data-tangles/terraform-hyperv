@@ -305,6 +305,7 @@ resource "hyperv_vhd" "veeam_server_vhd" {
 }
 
 resource "hyperv_machine_instance" "veeam" {
+  depends_on             = [hyperv_vhd.veeam_server_vhd]
   name                   = var.veeam_name
   generation             = var.veeam_generation
   automatic_start_action = var.veeam_automatic_start_action
