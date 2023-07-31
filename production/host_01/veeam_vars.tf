@@ -8,12 +8,12 @@ variable "veeam_server_vhd_source" {
   description = "Path to the source virtual hard disk file(s) that is being used as a source"
 }
 
-/*
+
 variable "veeam_server_vhd_size" {
   type        = number
   description = "The maximum size, in bytes, of the virtual hard disk to be created"
 }
-*/
+
 
 variable "veeam_name" {
   type        = string
