@@ -299,9 +299,8 @@ resource "hyperv_machine_instance" "vbr" {
 # Veeam Server
 
 resource "hyperv_vhd" "veeam_server_vhd" {
-  path   = var.veeam_server_vhd_path
-  source = var.veeam_server_vhd_source
-  size   = var.veeam_server_vhd_size
+  path = var.veeam_server_vhd_path
+  size = var.veeam_server_vhd_size
 }
 
 resource "hyperv_machine_instance" "veeam" {

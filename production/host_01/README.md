@@ -113,7 +113,6 @@ No modules.
 | <a name="input_veeam_processor_count"></a> [veeam\_processor\_count](#input\_veeam\_processor\_count) | Specifies the number of virtual processors for the virtual machine | `number` | n/a | yes |
 | <a name="input_veeam_server_vhd_path"></a> [veeam\_server\_vhd\_path](#input\_veeam\_server\_vhd\_path) | Path to the new virtual hard disk file(s) that is being created or being copied to | `string` | n/a | yes |
 | <a name="input_veeam_server_vhd_size"></a> [veeam\_server\_vhd\_size](#input\_veeam\_server\_vhd\_size) | The maximum size, in bytes, of the virtual hard disk to be created | `number` | n/a | yes |
-| <a name="input_veeam_server_vhd_source"></a> [veeam\_server\_vhd\_source](#input\_veeam\_server\_vhd\_source) | Path to the source virtual hard disk file(s) that is being used as a source | `string` | n/a | yes |
 | <a name="input_veeam_smart_paging_file_path"></a> [veeam\_smart\_paging\_file\_path](#input\_veeam\_smart\_paging\_file\_path) | Specifies the folder in which the Smart Paging file is to be stored | `string` | n/a | yes |
 | <a name="input_veeam_snapshost_file_location"></a> [veeam\_snapshost\_file\_location](#input\_veeam\_snapshost\_file\_location) | Specifies the folder in which the virtual machine is to store its snapshot files | `string` | n/a | yes |
 
