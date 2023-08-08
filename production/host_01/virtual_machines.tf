@@ -9,7 +9,7 @@ resource "hyperv_machine_instance" "dc01" {
   processor_count        = var.dc01_processor_count
   smart_paging_file_path = var.dc01_smart_paging_file_path
   snapshot_file_location = var.dc01_snapshost_file_location
-  notes                  = "Environment: ${local.environment}\nCreated by: ${local.createdby}\nModified on: ${local.modifiedon}\nPurpose: Domain Controller"
+  notes                  = "Environment: ${local.environment}\nCreated by: ${local.createdby}\nPurpose: Domain Controller"
   static_memory          = "true"
   memory_startup_bytes   = var.dc01_memory_startup_bytes
   state                  = "Running"
@@ -77,7 +77,7 @@ resource "hyperv_machine_instance" "k3s_01" {
   processor_count        = var.k3s_01_processor_count
   smart_paging_file_path = var.k3s_01_smart_paging_file_path
   snapshot_file_location = var.k3s_01_snapshost_file_location
-  notes                  = "Environment: ${local.environment}\nCreated by: ${local.createdby}\nModified on: ${local.modifiedon}\nPurpose: k3s Node"
+  notes                  = "Environment: ${local.environment}\nCreated by: ${local.createdby}\nPurpose: k3s Node"
   static_memory          = "true"
   memory_startup_bytes   = var.k3s_01_memory_startup_bytes
   state                  = "Running"
@@ -135,7 +135,7 @@ resource "hyperv_machine_instance" "media" {
   processor_count        = var.media_processor_count
   smart_paging_file_path = var.media_smart_paging_file_path
   snapshot_file_location = var.media_snapshost_file_location
-  notes                  = "Environment: ${local.environment}\nCreated by: ${local.createdby}\nModified on: ${local.modifiedon}\nPurpose: Media Server"
+  notes                  = "Environment: ${local.environment}\nCreated by: ${local.createdby}\nPurpose: Media Server"
   static_memory          = "true"
   memory_startup_bytes   = var.media_memory_startup_bytes
   state                  = "Running"
@@ -200,7 +200,7 @@ resource "hyperv_machine_instance" "vbr" {
   processor_count        = var.vbr_processor_count
   smart_paging_file_path = var.vbr_smart_paging_file_path
   snapshot_file_location = var.vbr_snapshost_file_location
-  notes                  = "Environment: ${local.environment}\nCreated by: ${local.createdby}\nModified on: ${local.modifiedon}\nPurpose: vbr Server"
+  notes                  = "Environment: ${local.environment}\nCreated by: ${local.createdby}\nPurpose: vbr Server"
   static_memory          = "true"
   memory_startup_bytes   = var.vbr_memory_startup_bytes
   state                  = "Running"
@@ -313,7 +313,7 @@ resource "hyperv_machine_instance" "veeam" {
   processor_count        = var.veeam_processor_count
   smart_paging_file_path = var.veeam_smart_paging_file_path
   snapshot_file_location = var.veeam_snapshost_file_location
-  notes                  = "Environment: ${local.environment}\nCreated by: ${local.createdby}\nModified on: ${local.modifiedon}\nPurpose: Veeam Server"
+  notes                  = "Environment: ${local.environment}\nCreated by: ${local.createdby}\nPurpose: Veeam Server"
   static_memory          = "true"
   memory_startup_bytes   = var.veeam_memory_startup_bytes
   state                  = "Running"
