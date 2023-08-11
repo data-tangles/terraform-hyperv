@@ -240,19 +240,6 @@ resource "hyperv_machine_instance" "vbr" {
       controller_location = "0"
       path                = var.vbr_os_disk_path
     }
-    boot_order {
-      boot_type           = "HardDiskDrive"
-      controller_number   = "0"
-      controller_location = "2"
-      path                = var.vbr_data_disk_02_path
-    }
-    boot_order {
-      boot_type           = "HardDiskDrive"
-      controller_number   = "0"
-      controller_location = "1"
-      path                = var.vbr_data_disk_01_path
-    }
-
   }
 
   vm_processor {
