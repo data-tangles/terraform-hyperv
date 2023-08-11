@@ -203,7 +203,7 @@ resource "hyperv_machine_instance" "vbr" {
   notes                  = "Environment: ${local.environment}\nCreated by: ${local.createdby}\nPurpose: vbr Server"
   static_memory          = "true"
   memory_startup_bytes   = var.vbr_memory_startup_bytes
-  state                  = "Running"
+  state                  = "Stopped"
 
   integration_services = {
     "Guest Service Interface" = true
@@ -274,27 +274,6 @@ resource "hyperv_machine_instance" "vbr" {
     controller_location = "0"
     path                = var.vbr_os_disk_path
   }
-
-  hard_disk_drives {
-    controller_type     = "Scsi"
-    controller_number   = "0"
-    controller_location = "1"
-    disk_number         = "3"
-    qos_policy_id       = ""
-    resource_pool_name  = ""
-    path                = var.vbr_data_disk_01_path
-  }
-
-  hard_disk_drives {
-    controller_type     = "Scsi"
-    controller_number   = "0"
-    controller_location = "2"
-    disk_number         = "4"
-    qos_policy_id       = ""
-    resource_pool_name  = ""
-    path                = var.vbr_data_disk_02_path
-  }
-}
 
 # Veeam Server
 
@@ -368,4 +347,25 @@ resource "hyperv_machine_instance" "veeam" {
     controller_location = "0"
     path                = var.veeam_server_vhd_path
   }
+
+    hard_disk_drives {
+    controller_type     = "Scsi"
+    controller_number   = "0"
+    controller_location = "1"
+    disk_number         = "3"
+    qos_policy_id       = ""
+    resource_pool_name  = ""
+    path                = var.veeam_data_disk_01_path
+  }
+
+  hard_disk_drives {
+    controller_type     = "Scsi"
+    controller_number   = "0"
+    controller_location = "2"
+    disk_number         = "4"
+    qos_policy_id       = ""
+    resource_pool_name  = ""
+    path                = var.veeam_data_disk_02_path
+  }
+}
 }
