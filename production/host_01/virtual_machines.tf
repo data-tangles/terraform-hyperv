@@ -203,7 +203,7 @@ resource "hyperv_machine_instance" "vbr" {
   notes                  = "Environment: ${local.environment}\nCreated by: ${local.createdby}\nPurpose: vbr Server"
   static_memory          = "true"
   memory_startup_bytes   = var.vbr_memory_startup_bytes
-  state                  = "Stopped"
+  state                  = "Off"
 
   integration_services = {
     "Guest Service Interface" = true
