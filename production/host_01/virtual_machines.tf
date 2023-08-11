@@ -354,8 +354,6 @@ resource "hyperv_machine_instance" "veeam" {
     controller_number   = "0"
     controller_location = "1"
     disk_number         = "3"
-    qos_policy_id       = ""
-    resource_pool_name  = ""
     path                = var.veeam_data_disk_01_path
   }
 
@@ -364,8 +362,6 @@ resource "hyperv_machine_instance" "veeam" {
     controller_number   = "0"
     controller_location = "2"
     disk_number         = "4"
-    qos_policy_id       = ""
-    resource_pool_name  = ""
     path                = var.veeam_data_disk_02_path
   }
 }
