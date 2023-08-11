@@ -274,6 +274,7 @@ resource "hyperv_machine_instance" "vbr" {
     controller_location = "0"
     path                = var.vbr_os_disk_path
   }
+}
 
 # Veeam Server
 
@@ -367,5 +368,4 @@ resource "hyperv_machine_instance" "veeam" {
     resource_pool_name  = ""
     path                = var.veeam_data_disk_02_path
   }
-}
 }
