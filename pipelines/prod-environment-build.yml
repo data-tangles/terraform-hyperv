@@ -28,13 +28,13 @@ parameters:
   - name: terraformLogLevel
     displayName: 'Terraform Log Level'
     type: string
-    default: info
+    default: INFO
     values:
-     - info
-     - warn
-     - error
-     - debug
-     - trace
+     - INFO
+     - WARN
+     - ERROR
+     - DEBUG
+     - TRACE
 
 trigger:
 - none
@@ -57,15 +57,23 @@ stages:
               terraformVersion: ${{ parameters.terraformVersion }}
 
           - task: CmdLine@2
+            displayName: 'Set TF_LOG level'
             inputs:
               script: |
-                terraform init -backend-config="/terraform/variables/terraform-hyperv/${{ parameters.hostSelection }}_backend.tf"
                 echo "##[command] Setting TF_LOG level to ${{ parameters.terraformLogLevel }}..."
                 export TF_LOG="${{ parameters.terraformLogLevel }}"
                 echo "##[section] Successfully set TF_LOG level to ${{ parameters.terraformLogLevel }}"
               workingDirectory: '$(System.DefaultWorkingDirectory)/production/${{ parameters.hostSelection }}'
 
           - task: CmdLine@2
+            displayName: 'Run Terrraform Init'
+            inputs:
+              script: |
+                terraform init -backend-config="/terraform/variables/terraform-hyperv/${{ parameters.hostSelection }}_backend.tf"
+              workingDirectory: '$(System.DefaultWorkingDirectory)/production/${{ parameters.hostSelection }}'
+
+          - task: CmdLine@2
+            displayName: 'Run Terraform Plan'
             inputs:
               script: |
                 terraform plan -var-file="/terraform/variables/terraform-hyperv/production/${{ parameters.varSelection }}.tfvars" -out ${BUILD_BUILDNUMBER}.tfplan
@@ -108,6 +116,15 @@ stages:
                 inputs:
                   terraformVersion: ${{ parameters.terraformVersion }}
 
+              - task: CmdLine@2
+                displayName: 'Set TF_LOG level'
+                inputs:
+                  script: |
+                    echo "##[command] Setting TF_LOG level to ${{ parameters.terraformLogLevel }}..."
+                    export TF_LOG="${{ parameters.terraformLogLevel }}"
+                    echo "##[section] Successfully set TF_LOG level to ${{ parameters.terraformLogLevel }}"
+                  workingDirectory: '$(System.DefaultWorkingDirectory)/production/${{ parameters.hostSelection }}'
+
               - task: ExtractFiles@1
                 displayName: 'Extract Plan Artifact'
                 inputs:
@@ -116,8 +133,8 @@ stages:
                   cleanDestinationFolder: true
 
               - task: CmdLine@2
+                displayName: 'Run Terraform Apply'
                 inputs:
                   script: |
-                    export TF_LOG="${{ parameters.terraformLogLevel }}"
                     terraform apply ${BUILD_BUILDNUMBER}.tfplan
                   workingDirectory: '$(System.DefaultWorkingDirectory)/production/${{ parameters.hostSelection }}'
