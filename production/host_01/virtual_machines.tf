@@ -190,7 +190,7 @@ resource "hyperv_machine_instance" "media" {
 }
 
 # Old Veeam Server
-
+/*
 resource "hyperv_machine_instance" "vbr" {
   name                   = var.vbr_name
   generation             = var.vbr_generation
@@ -262,6 +262,7 @@ resource "hyperv_machine_instance" "vbr" {
     path                = var.vbr_os_disk_path
   }
 }
+*/
 
 # Veeam Server
 
@@ -336,7 +337,7 @@ resource "hyperv_machine_instance" "veeam" {
     path                = var.veeam_server_vhd_path
   }
 
-    hard_disk_drives {
+  hard_disk_drives {
     controller_type     = "Scsi"
     controller_number   = "0"
     controller_location = "1"
