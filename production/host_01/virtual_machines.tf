@@ -190,7 +190,7 @@ resource "hyperv_machine_instance" "media" {
 }
 
 # Old Veeam Server
-
+/*
 resource "hyperv_machine_instance" "vbr" {
   name                   = var.vbr_name
   generation             = var.vbr_generation
@@ -262,6 +262,7 @@ resource "hyperv_machine_instance" "vbr" {
     path                = var.vbr_os_disk_path
   }
 }
+*/
 
 # Veeam Server
 

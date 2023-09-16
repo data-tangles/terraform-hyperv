@@ -25,7 +25,6 @@ No modules.
 | [hyperv_machine_instance.dc01](https://registry.terraform.io/providers/qman-being/hyperv/1.0.2/docs/resources/machine_instance) | resource |
 | [hyperv_machine_instance.k3s_01](https://registry.terraform.io/providers/qman-being/hyperv/1.0.2/docs/resources/machine_instance) | resource |
 | [hyperv_machine_instance.media](https://registry.terraform.io/providers/qman-being/hyperv/1.0.2/docs/resources/machine_instance) | resource |
-| [hyperv_machine_instance.vbr](https://registry.terraform.io/providers/qman-being/hyperv/1.0.2/docs/resources/machine_instance) | resource |
 | [hyperv_machine_instance.veeam](https://registry.terraform.io/providers/qman-being/hyperv/1.0.2/docs/resources/machine_instance) | resource |
 | [hyperv_network_switch.host_01_production_vswitch](https://registry.terraform.io/providers/qman-being/hyperv/1.0.2/docs/resources/network_switch) | resource |
 | [hyperv_vhd.veeam_server_vhd](https://registry.terraform.io/providers/qman-being/hyperv/1.0.2/docs/resources/vhd) | resource |
@@ -90,18 +89,6 @@ No modules.
 | <a name="input_media_smart_paging_file_path"></a> [media\_smart\_paging\_file\_path](#input\_media\_smart\_paging\_file\_path) | Specifies the folder in which the Smart Paging file is to be stored | `string` | n/a | yes |
 | <a name="input_media_snapshost_file_location"></a> [media\_snapshost\_file\_location](#input\_media\_snapshost\_file\_location) | Specifies the folder in which the virtual machine is to store its snapshot files | `string` | n/a | yes |
 | <a name="input_note_environment"></a> [note\_environment](#input\_note\_environment) | Note to indicate Environment | `string` | n/a | yes |
-| <a name="input_vbr_automatic_start_action"></a> [vbr\_automatic\_start\_action](#input\_vbr\_automatic\_start\_action) | Specifies the action the virtual machine is to take upon start | `string` | n/a | yes |
-| <a name="input_vbr_automatic_start_delay"></a> [vbr\_automatic\_start\_delay](#input\_vbr\_automatic\_start\_delay) | Specifies the number of seconds by which the virtual machine's start should be delayed | `number` | n/a | yes |
-| <a name="input_vbr_automatic_stop_action"></a> [vbr\_automatic\_stop\_action](#input\_vbr\_automatic\_stop\_action) | Specifies the action the virtual machine is to take when the virtual machine host shuts down | `string` | n/a | yes |
-| <a name="input_vbr_generation"></a> [vbr\_generation](#input\_vbr\_generation) | Specifies the generation, as an integer, for the virtual machine | `number` | n/a | yes |
-| <a name="input_vbr_memory_startup_bytes"></a> [vbr\_memory\_startup\_bytes](#input\_vbr\_memory\_startup\_bytes) | Specifies the amount of memory that the virtual machine is to be allocated upon startup | `number` | n/a | yes |
-| <a name="input_vbr_name"></a> [vbr\_name](#input\_vbr\_name) | The name of the virtual machine | `string` | n/a | yes |
-| <a name="input_vbr_nic_name"></a> [vbr\_nic\_name](#input\_vbr\_nic\_name) | Specifies the name for the virtual network adapter | `string` | n/a | yes |
-| <a name="input_vbr_nic_switch"></a> [vbr\_nic\_switch](#input\_vbr\_nic\_switch) | Specifies the name of the virtual switch to connect to the new network adapterlue | `string` | n/a | yes |
-| <a name="input_vbr_os_disk_path"></a> [vbr\_os\_disk\_path](#input\_vbr\_os\_disk\_path) | Specifies the full path of the hard disk drive file to be added | `string` | n/a | yes |
-| <a name="input_vbr_processor_count"></a> [vbr\_processor\_count](#input\_vbr\_processor\_count) | Specifies the number of virtual processors for the virtual machine | `number` | n/a | yes |
-| <a name="input_vbr_smart_paging_file_path"></a> [vbr\_smart\_paging\_file\_path](#input\_vbr\_smart\_paging\_file\_path) | Specifies the folder in which the Smart Paging file is to be stored | `string` | n/a | yes |
-| <a name="input_vbr_snapshost_file_location"></a> [vbr\_snapshost\_file\_location](#input\_vbr\_snapshost\_file\_location) | Specifies the folder in which the virtual machine is to store its snapshot files | `string` | n/a | yes |
 | <a name="input_veeam_automatic_start_action"></a> [veeam\_automatic\_start\_action](#input\_veeam\_automatic\_start\_action) | Specifies the action the virtual machine is to take upon start | `string` | n/a | yes |
 | <a name="input_veeam_automatic_start_delay"></a> [veeam\_automatic\_start\_delay](#input\_veeam\_automatic\_start\_delay) | Specifies the number of seconds by which the virtual machine's start should be delayed | `number` | n/a | yes |
 | <a name="input_veeam_automatic_stop_action"></a> [veeam\_automatic\_stop\_action](#input\_veeam\_automatic\_stop\_action) | Specifies the action the virtual machine is to take when the virtual machine host shuts down | `string` | n/a | yes |

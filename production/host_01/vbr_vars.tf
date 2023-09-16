@@ -1,3 +1,4 @@
+/*
 variable "vbr_name" {
   type        = string
   description = "The name of the virtual machine"
@@ -67,4 +68,3 @@ variable "vbr_data_disk_02_path" {
   type        = string
   description = "Specifies the full path of the hard disk drive file to be added"
 }
-/*/
