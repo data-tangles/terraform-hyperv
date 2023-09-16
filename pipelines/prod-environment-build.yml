@@ -50,8 +50,7 @@ stages:
         pool: ${{ parameters.agentPool }}
 
         steps:
-
-          - task: TerraformInstaller@0
+          - task: TerraformInstaller@1
             displayName: 'Terraform Install'
             inputs:
               terraformVersion: ${{ parameters.terraformVersion }}
@@ -111,7 +110,7 @@ stages:
             deploy:
               steps:
 
-              - task: TerraformInstaller@0
+              - task: TerraformInstaller@1
                 displayName: 'Terraform Install'
                 inputs:
                   terraformVersion: ${{ parameters.terraformVersion }}
