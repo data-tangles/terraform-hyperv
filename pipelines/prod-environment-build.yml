@@ -60,7 +60,9 @@ stages:
             inputs:
               script: |
                 terraform init -backend-config="/terraform/variables/terraform-hyperv/${{ parameters.hostSelection }}_backend.tf"
-                export TF_LOG='{{ parameters.terraformLogLevel }}'
+                echo "##[command] Setting TF_LOG level to {{ parameters.terraformLogLevel }}..."
+                export TF_LOG="{{ parameters.terraformLogLevel }}"
+                echo "##[section] Successfully set TF_LOG level to {{ parameters.terraformLogLevel }}"
               workingDirectory: '$(System.DefaultWorkingDirectory)/production/${{ parameters.hostSelection }}'
 
           - task: CmdLine@2
