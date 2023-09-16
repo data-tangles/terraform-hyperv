@@ -74,6 +74,8 @@ No modules.
 | <a name="input_k3s_01_processor_count"></a> [k3s\_01\_processor\_count](#input\_k3s\_01\_processor\_count) | Specifies the number of virtual processors for the virtual machine | `number` | n/a | yes |
 | <a name="input_k3s_01_smart_paging_file_path"></a> [k3s\_01\_smart\_paging\_file\_path](#input\_k3s\_01\_smart\_paging\_file\_path) | Specifies the folder in which the Smart Paging file is to be stored | `string` | n/a | yes |
 | <a name="input_k3s_01_snapshost_file_location"></a> [k3s\_01\_snapshost\_file\_location](#input\_k3s\_01\_snapshost\_file\_location) | Specifies the folder in which the virtual machine is to store its snapshot files | `string` | n/a | yes |
+| <a name="input_kerberos_config"></a> [kerberos\_config](#input\_kerberos\_config) | Path to kerberos config file | `string` | `false` | no |
+| <a name="input_kerberos_realm"></a> [kerberos\_realm](#input\_kerberos\_realm) | Kerberos Realm used for authentication | `string` | `false` | no |
 | <a name="input_media_automatic_start_action"></a> [media\_automatic\_start\_action](#input\_media\_automatic\_start\_action) | Specifies the action the virtual machine is to take upon start | `string` | n/a | yes |
 | <a name="input_media_automatic_start_delay"></a> [media\_automatic\_start\_delay](#input\_media\_automatic\_start\_delay) | Specifies the number of seconds by which the virtual machine's start should be delayed | `number` | n/a | yes |
 | <a name="input_media_automatic_stop_action"></a> [media\_automatic\_stop\_action](#input\_media\_automatic\_stop\_action) | Specifies the action the virtual machine is to take when the virtual machine host shuts down | `string` | n/a | yes |
@@ -91,8 +93,6 @@ No modules.
 | <a name="input_vbr_automatic_start_action"></a> [vbr\_automatic\_start\_action](#input\_vbr\_automatic\_start\_action) | Specifies the action the virtual machine is to take upon start | `string` | n/a | yes |
 | <a name="input_vbr_automatic_start_delay"></a> [vbr\_automatic\_start\_delay](#input\_vbr\_automatic\_start\_delay) | Specifies the number of seconds by which the virtual machine's start should be delayed | `number` | n/a | yes |
 | <a name="input_vbr_automatic_stop_action"></a> [vbr\_automatic\_stop\_action](#input\_vbr\_automatic\_stop\_action) | Specifies the action the virtual machine is to take when the virtual machine host shuts down | `string` | n/a | yes |
-| <a name="input_vbr_data_disk_01_path"></a> [vbr\_data\_disk\_01\_path](#input\_vbr\_data\_disk\_01\_path) | Specifies the full path of the hard disk drive file to be added | `string` | n/a | yes |
-| <a name="input_vbr_data_disk_02_path"></a> [vbr\_data\_disk\_02\_path](#input\_vbr\_data\_disk\_02\_path) | Specifies the full path of the hard disk drive file to be added | `string` | n/a | yes |
 | <a name="input_vbr_generation"></a> [vbr\_generation](#input\_vbr\_generation) | Specifies the generation, as an integer, for the virtual machine | `number` | n/a | yes |
 | <a name="input_vbr_memory_startup_bytes"></a> [vbr\_memory\_startup\_bytes](#input\_vbr\_memory\_startup\_bytes) | Specifies the amount of memory that the virtual machine is to be allocated upon startup | `number` | n/a | yes |
 | <a name="input_vbr_name"></a> [vbr\_name](#input\_vbr\_name) | The name of the virtual machine | `string` | n/a | yes |
@@ -105,6 +105,8 @@ No modules.
 | <a name="input_veeam_automatic_start_action"></a> [veeam\_automatic\_start\_action](#input\_veeam\_automatic\_start\_action) | Specifies the action the virtual machine is to take upon start | `string` | n/a | yes |
 | <a name="input_veeam_automatic_start_delay"></a> [veeam\_automatic\_start\_delay](#input\_veeam\_automatic\_start\_delay) | Specifies the number of seconds by which the virtual machine's start should be delayed | `number` | n/a | yes |
 | <a name="input_veeam_automatic_stop_action"></a> [veeam\_automatic\_stop\_action](#input\_veeam\_automatic\_stop\_action) | Specifies the action the virtual machine is to take when the virtual machine host shuts down | `string` | n/a | yes |
+| <a name="input_veeam_data_disk_01_path"></a> [veeam\_data\_disk\_01\_path](#input\_veeam\_data\_disk\_01\_path) | Specifies the full path of the hard disk drive file to be added | `string` | n/a | yes |
+| <a name="input_veeam_data_disk_02_path"></a> [veeam\_data\_disk\_02\_path](#input\_veeam\_data\_disk\_02\_path) | Specifies the full path of the hard disk drive file to be added | `string` | n/a | yes |
 | <a name="input_veeam_generation"></a> [veeam\_generation](#input\_veeam\_generation) | Specifies the generation, as an integer, for the virtual machine | `number` | n/a | yes |
 | <a name="input_veeam_memory_startup_bytes"></a> [veeam\_memory\_startup\_bytes](#input\_veeam\_memory\_startup\_bytes) | Specifies the amount of memory that the virtual machine is to be allocated upon startup | `number` | n/a | yes |
 | <a name="input_veeam_name"></a> [veeam\_name](#input\_veeam\_name) | The name of the virtual machine | `string` | n/a | yes |

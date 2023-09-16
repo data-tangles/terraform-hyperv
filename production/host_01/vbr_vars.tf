@@ -57,7 +57,7 @@ variable "vbr_os_disk_path" {
   type        = string
   description = "Specifies the full path of the hard disk drive file to be added"
 }
-
+/*/
 variable "vbr_data_disk_01_path" {
   type        = string
   description = "Specifies the full path of the hard disk drive file to be added"
@@ -67,3 +67,4 @@ variable "vbr_data_disk_02_path" {
   type        = string
   description = "Specifies the full path of the hard disk drive file to be added"
 }
+/*/
