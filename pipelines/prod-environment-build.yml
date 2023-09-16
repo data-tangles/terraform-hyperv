@@ -35,6 +35,9 @@ parameters:
      - ERROR
      - DEBUG
      - TRACE
+     
+variables:
+  TF_LOG: ${{ parameters.terraformLogLevel }}
 
 trigger:
 - none
@@ -55,15 +58,6 @@ stages:
             displayName: 'Terraform Install'
             inputs:
               terraformVersion: ${{ parameters.terraformVersion }}
-
-          - task: CmdLine@2
-            displayName: 'Set TF_LOG level'
-            inputs:
-              script: |
-                echo "##[command] Setting TF_LOG level to ${{ parameters.terraformLogLevel }}..."
-                export TF_LOG="${{ parameters.terraformLogLevel }}"
-                echo "##[section] Successfully set TF_LOG level to ${{ parameters.terraformLogLevel }}"
-              workingDirectory: '$(System.DefaultWorkingDirectory)/production/${{ parameters.hostSelection }}'
 
           - task: CmdLine@2
             displayName: 'Run Terrraform Init'
@@ -115,15 +109,6 @@ stages:
                 displayName: 'Terraform Install'
                 inputs:
                   terraformVersion: ${{ parameters.terraformVersion }}
-
-              - task: CmdLine@2
-                displayName: 'Set TF_LOG level'
-                inputs:
-                  script: |
-                    echo "##[command] Setting TF_LOG level to ${{ parameters.terraformLogLevel }}..."
-                    export TF_LOG="${{ parameters.terraformLogLevel }}"
-                    echo "##[section] Successfully set TF_LOG level to ${{ parameters.terraformLogLevel }}"
-                  workingDirectory: '$(System.DefaultWorkingDirectory)/production/${{ parameters.hostSelection }}'
 
               - task: ExtractFiles@1
                 displayName: 'Extract Plan Artifact'
