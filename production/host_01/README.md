@@ -73,6 +73,8 @@ No modules.
 | <a name="input_k3s_01_processor_count"></a> [k3s\_01\_processor\_count](#input\_k3s\_01\_processor\_count) | Specifies the number of virtual processors for the virtual machine | `number` | n/a | yes |
 | <a name="input_k3s_01_smart_paging_file_path"></a> [k3s\_01\_smart\_paging\_file\_path](#input\_k3s\_01\_smart\_paging\_file\_path) | Specifies the folder in which the Smart Paging file is to be stored | `string` | n/a | yes |
 | <a name="input_k3s_01_snapshost_file_location"></a> [k3s\_01\_snapshost\_file\_location](#input\_k3s\_01\_snapshost\_file\_location) | Specifies the folder in which the virtual machine is to store its snapshot files | `string` | n/a | yes |
+| <a name="input_kerberos_config"></a> [kerberos\_config](#input\_kerberos\_config) | Path to kerberos config file | `string` | `false` | no |
+| <a name="input_kerberos_realm"></a> [kerberos\_realm](#input\_kerberos\_realm) | Kerberos Realm used for authentication | `string` | `false` | no |
 | <a name="input_media_automatic_start_action"></a> [media\_automatic\_start\_action](#input\_media\_automatic\_start\_action) | Specifies the action the virtual machine is to take upon start | `string` | n/a | yes |
 | <a name="input_media_automatic_start_delay"></a> [media\_automatic\_start\_delay](#input\_media\_automatic\_start\_delay) | Specifies the number of seconds by which the virtual machine's start should be delayed | `number` | n/a | yes |
 | <a name="input_media_automatic_stop_action"></a> [media\_automatic\_stop\_action](#input\_media\_automatic\_stop\_action) | Specifies the action the virtual machine is to take when the virtual machine host shuts down | `string` | n/a | yes |

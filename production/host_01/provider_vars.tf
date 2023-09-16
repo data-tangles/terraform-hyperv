@@ -31,6 +31,18 @@ variable "hyperv_insecure" {
   default     = false
 }
 
+variable "kerberos_config" {
+  type        = string
+  description = "Path to kerberos config file"
+  default     = false
+}
+
+variable "kerberos_realm" {
+  type        = string
+  description = "Kerberos Realm used for authentication"
+  default     = false
+}
+
 variable "hyperv_use_ntlm" {
   type        = bool
   description = "Use NTLM for authentication for HyperV api calls"

@@ -15,6 +15,8 @@ provider "hyperv" {
   port            = var.hyperv_port
   https           = var.hyperv_https
   insecure        = var.hyperv_insecure
+  kerberos_config = var.kerberos_config
+  kerberos_realm  = var.kerberos_realm
   use_ntlm        = var.hyperv_use_ntlm
   tls_server_name = var.hyperv_tls_server_name
   cacert_path     = var.hyperv_cacert_path
