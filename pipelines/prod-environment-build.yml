@@ -35,9 +35,17 @@ parameters:
      - ERROR
      - DEBUG
      - TRACE
+  - name: winrmcpDebug
+    displayName: 'Enable WINRMCP Debug'
+    type: string
+    default: 0
+    values:
+      - 0
+      - 1
      
 variables:
   TF_LOG: ${{ parameters.terraformLogLevel }}
+  WINRMCP_DEBUG: ${{ parameters.winrmcpDebug }}
 
 trigger:
 - none
